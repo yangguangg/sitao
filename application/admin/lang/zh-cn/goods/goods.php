@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'Id'                     => '主键ID',
+    'Title'                  => '商品名称',
+    'Cate_id'                => '商品分类',
+    'Images'                 => '展示轮播图',
+    'Createtime'             => '创建时间',
+    'Goods_content'          => '商品富文本',
+    'Original_price'         => '原价',
+    'Sale_price'             => '促销价',
+    'Tag_ids'                => '标签',
+    'Goods_nums'             => '库存',
+    'Updatetime'             => '更新时间',
+    'Deletetime'             => '删除时间',
+    'Status'                 => '状态',
+    'Status 0'               => '下架',
+    'Status 1'               => '正常',
+    'Is_intro'               => '热销推荐',
+    'Is_intro 0'             => '否',
+    'Is_intro 1'             => '是',
+    'Is_avoid'               => '桶押金免除',
+    'Is_avoid 0'             => '否',
+    'Is_avoid 1'             => '是',
+    'Brand_id'               => '所属品牌',
+    'Image'                  => '商品预览图',
+    'Goodsbrands.brand_name' => '品牌名称',
+    'Goodscates.name'   => '分类名称',
+    'Goodstags.tag_name'     => '标签名称'
+];

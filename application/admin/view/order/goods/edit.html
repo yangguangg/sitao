@@ -1,0 +1,75 @@
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="statusList" item="vo"}
+            <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="$row.status"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('B_user_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="stationId" class="form-control selectpicker" data-live-search='true'  name="row[b_user_id]" id="">
+                <option title="请选择配送水站" value="">请选择配送水站</option>
+                {foreach name="stationList" item="vo"}
+                    <option title="{$vo.b_name}" {if $row.b_user_id == $vo.id}selected{/if} value="{$vo.id}">{$vo.b_name}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">配送人员:</label>
+        <div class="col-xs-12 col-sm-8" id="workers" >
+            <select class="form-control selectpicker" data-live-search="true"  name="row[worker_id]">
+                <option title="请选择配送人员" value="">请选择配送人员</option>
+                {foreach name="workerList" item="vo"}
+                    <option title="{$vo.worker_name}" {if $row.worker_id == $vo.id}selected{/if} value="{$vo.id}">{$vo.worker_name}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
+<script>
+    $("#stationId").on('change',function(){
+        var stationId = $(this).val();
+        if(stationId){
+            $.ajax({
+                    url:"water/Users/getWorkerList",
+                    data:{
+                        b_user_id:stationId
+                    },
+                    dataType:'json',
+                    success:function(res){
+                        var workerList = res.list
+                        console.log(workerList)
+                        var worker_id = "{$row.worker_id}"
+                        var str = '<select class="form-control selectpicker" data-live-search="true"  name="row[worker_id]">'
+                            str += '<option title="请选择配送人员" value="">请选择配送人员</option>'
+                        workerList.forEach(item => {
+                                str += '<option title="'+item.worker_name+'"  value="'+item.id+'"';
+                                if(worker_id == item.id){
+                                    str += 'selected'
+                                }
+                                str += '>'+item.worker_name+'</option>';
+                            })
+                        str += "</select>"
+                        console.log(str)
+                        $("#workers").html(str)
+                    }
+            })
+        }
+    })
+</script>

@@ -1,0 +1,182 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Mobile')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-mobile" class="form-control" name="row[mobile]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Head_img')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-head_img" class="form-control" name="row[head_img]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Nickname')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-nickname" class="form-control" name="row[nickname]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Open_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-open_id" data-rule="required" data-source="open/index" class="form-control selectpage" name="row[open_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="statusList" item="vo"}
+            <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="0"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('User_type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-user_type" min="0" class="form-control" name="row[user_type]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('B_address')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-b_address" class="form-control" name="row[b_address]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('B_lng')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-b_lng" class="form-control" name="row[b_lng]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('B_lat')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-b_lat" class="form-control" name="row[b_lat]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Province')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-province" class="form-control" name="row[province]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('City')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class='control-relative'><input id="c-city" class="form-control" data-toggle="city-picker" name="row[city]" type="text"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('District')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-district" class="form-control" name="row[district]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Sex')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-sex" class="form-control selectpicker" name="row[sex]">
+                {foreach name="sexList" item="vo"}
+                    <option value="{$key}" {in name="key" value="0"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Used_barrel')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-used_barrel" min="0" class="form-control" name="row[used_barrel]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Unused_barrel')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-unused_barrel" min="0" class="form-control" name="row[unused_barrel]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Now_money')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-now_money" min="0" class="form-control" step="0.01" name="row[now_money]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Add_money')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-add_money" min="0" class="form-control" step="0.01" name="row[add_money]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('B_password')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-b_password" class="form-control" name="row[b_password]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('B_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-b_name" class="form-control" name="row[b_name]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('True_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-true_name" class="form-control" name="row[true_name]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Positive_image')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-positive_image" class="form-control" size="50" name="row[positive_image]" type="text" value="">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-positive_image" class="btn btn-danger faupload" data-input-id="c-positive_image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-positive_image"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-positive_image" class="btn btn-primary fachoose" data-input-id="c-positive_image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-positive_image"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-positive_image"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Reverse_image')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-reverse_image" class="form-control" size="50" name="row[reverse_image]" type="text" value="">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-reverse_image" class="btn btn-danger faupload" data-input-id="c-reverse_image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-reverse_image"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-reverse_image" class="btn btn-primary fachoose" data-input-id="c-reverse_image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-reverse_image"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-reverse_image"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Child_nums')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-child_nums" min="0" class="form-control" name="row[child_nums]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Apply_address')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-apply_address" class="form-control" name="row[apply_address]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
